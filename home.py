@@ -1,7 +1,9 @@
 import streamlit as st
 
+st.set_page_config(layout="wide")
 
-st.title("Route Calculator")
+
+st.title("PMMS")
 st.write(
-    "App for calculating cost of transport")
+    "App for managing project MAN")
 
