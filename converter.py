@@ -86,7 +86,7 @@ def add_formulas_to_excel(df, output_path):
             row_num = i
             
             # absolute timewindows (kolumna AJ = 36)
-            worksheet[f'AJ{row_num}'] = f"=IFERROR(VLOOKUP(G{row_num},'https://juliob50600527-my.sharepoint.com/personal/oliwier_opyrchal_gruposese_com/Documents/[opentime.xlsx]sheet'!$B$2:$F$1000,5,FALSE),\"06:00:00-14:00:00\")"
+            worksheet[f'AJ{row_num}'].value = f"=IFERROR(VLOOKUP(G{row_num},'https://juliob50600527-my.sharepoint.com/personal/oliwier_opyrchal_gruposese_com/Documents/[opentime.xlsx]sheet'!$B$2:$F$1000,5,FALSE),\"06:00:00-14:00:00\")"
             
             # Latitude (kolumna L = 12)
             worksheet[f'L{row_num}'] = f'=IFERROR(VLOOKUP(E{row_num},\'https://juliob50600527-my.sharepoint.com/personal/oliwier_opyrchal_gruposese_com/Documents/[Points of loading PTV.xlsx]ptvform\'!$A:$D,2,FALSE),"Nie znaleziono")'
