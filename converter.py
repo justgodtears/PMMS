@@ -185,7 +185,11 @@ def add_formulas_to_excel(df, output_path):
                     pass
             adjusted_width = min(max_length + 2, 50)
             worksheet.column_dimensions[column_letter].width = adjusted_width
-    
+
+
+    # Na końcu funkcji, przed return oversized_rows:
+    workbook.calculation.calcMode = 'auto'
+    workbook.calculation.fullCalcOnLoad = True
     return oversized_rows
 
 # Streamlit App
