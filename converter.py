@@ -134,7 +134,7 @@ def add_formulas_to_excel(df, output_path):
             worksheet[f'S{row_num}'] = f'=IF(AH{row_num}=0, 999, ROUNDUP(Y{row_num}/AH{row_num},0) * ((W{row_num}*X{row_num})/1.7))'
             
             # tags (kolumna AN = 40)
-            worksheet[f'AN{row_num}'] = f'=IF(E{row_num}="LEM EUROPE GMBH","ML",IF(E{row_num}="IEC GMBH","ML",IF(E{row_num}="ANTARES LIFE CYCLE SOLUTION GMBH","SM",IF(E{row_num}="HEIMSCH DESIGN GMBH","NOBGM",IF(E{row_num}="HENKEL WERK HEIDELBERG","ADR","")))))'
+            worksheet[f'AN{row_num}'] = f'=IF(E{row_num}="LEM EUROPE GMBH","ML",IF(E{row_num}="IEC GMBH","ML",IF(E{row_num}="ANTARES LIFE CYCLE SOLUTION GMBH","SM",IF(E{row_num}="HEIMSCH DESIGN GMBH","NOBGM",IF(E{row_num}="HENKEL WERK HEIDELBERG","ADR",IF(E{row_num}="PROMENS (ROTOVIA) HOCKENHEIM GMBH","ROT",""))))))'
             
             # labels (kolumna AP = 42)
             worksheet[f'AP{row_num}'] = f'=IF(LEFT(SUBSTITUTE(G{row_num},"DE-",""),1)="5","AREA 1",IF(LEFT(SUBSTITUTE(G{row_num},"DE-",""),1)="6","AREA 2",IF(LEFT(SUBSTITUTE(G{row_num},"DE-",""),1)="7","AREA 3","")))'
