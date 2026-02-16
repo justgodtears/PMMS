@@ -7,7 +7,7 @@ home = st.Page("home.py", title="Home", icon=":material/home:")
 converter = st.Page("converter.py", title="Converter", icon=":material/table_convert:")
 
 
-pg = st.navigation([home, dashboard, route_calculator, route_status, converter])
+pg = st.navigation([home, converter])
 pg.run()
 
 
