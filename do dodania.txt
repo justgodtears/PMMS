@@ -1,1 +1,0 @@
-https://github.com/mkhorasani/Streamlit-Authenticator - logowanie do streamlit, konta itd
