@@ -48,7 +48,7 @@ def process_ptv_data(df):
         "time window type", "color", "as is sequence", "tags",
         "forbidden tags", "labels", "penalty cost", "group id",
         "description", "sequence number", "sequence group id", "avis",
-        "avis pickup date", "final destination"
+        "avis pickup date", "final destination", "same vehicle group id"
     ]
     
     # Utwórz pustą DataFrame z 50 kolumnami
@@ -144,7 +144,10 @@ def add_formulas_to_excel(df, output_path):
             
             # description (kolumna AS = 44)
             worksheet[f'AS{row_num}'] = f'=AV{row_num}'
-        
+
+            # same vehicle group id (kolumna AY = 50)
+            worksheet[f'AY{row_num}'] = f'=IFERROR(INDEX($AY$1:AY{row_num-1},MATCH(D{row_num},$D$1:D{row_num-1},0)),MAX($AY$1:AY{row_num-1})+1)'
+            
         # Dodaj obramowania
         thin_border = Border(
             left=Side(style='thin'),
