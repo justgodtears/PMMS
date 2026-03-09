@@ -52,7 +52,7 @@ def process_ptv_data(df):
     ]
     
     # Utwórz pustą DataFrame z 50 kolumnami
-    result_df = pd.DataFrame(index=range(len(filtered_df)), columns=range(50))
+    result_df = pd.DataFrame(index=range(len(filtered_df)), columns=range(51))
     
     # Przepisz dane z oryginalnych kolumn do docelowych
     for src_col, tgt_col in zip(cols_to_keep, target_columns):
