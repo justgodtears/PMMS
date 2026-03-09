@@ -47,7 +47,7 @@ def process_ptv_data(df):
         "Corrected stacking factor 6", "service time", "absolute timewindows",
         "time window type", "color", "as is sequence", "tags",
         "forbidden tags", "labels", "penalty cost", "group id",
-        "same vehicle group id", "sequence number", "sequence group id", "avis",
+        "description", "sequence number", "sequence group id", "avis",
         "avis pickup date", "final destination"
     ]
     
@@ -142,7 +142,7 @@ def add_formulas_to_excel(df, output_path):
             # color (kolumna AL = 38)
             worksheet[f'AL{row_num}'] = f'=IF(AP{row_num}="AREA 1","blue",IF(AP{row_num}="AREA 2","green",IF(AP{row_num}="AREA 3","yellow","")))'
             
-            # group id (kolumna AS = 44)
+            # description (kolumna AS = 44)
             worksheet[f'AS{row_num}'] = f'=AV{row_num}'
         
         # Dodaj obramowania
