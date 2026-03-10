@@ -25,12 +25,12 @@ def process_ptv_data(df):
     filtered_df = df_without_headers[mask].copy()
     
     # Kolumny do zachowania (indeksy Python: VBA-1)
-    # VBA: 4, 9, 16, 11, 17, 18, 19, 22, 30, 36, 37, 38, 39, 40, 41, 55
-    cols_to_keep = [3, 8, 15, 10, 16, 17, 18, 21, 29, 35, 36, 37, 38, 39, 40, 54]
+    # VBA: 4, 9, 16, 11, 17, 18, 19, 22, 30, 36, 37, 38, 39, 40, 41, 55 , 23
+    cols_to_keep =   [3, 8, 15, 10, 16, 17, 18, 21, 22, 29, 35, 36, 37, 38, 39, 40, 54]
     
     # Docelowe kolumny (indeksy Python: VBA-1)
-    # VBA: 48, 27, 4, 5, 6, 8, 7, 49, 50, 21, 20, 22, 23, 24, 25, 26
-    target_columns = [47, 26, 3, 4, 5, 7, 6, 48, 49, 20, 19, 21, 22, 23, 24, 25]
+    # VBA: 48, 27, 4, 5, 6, 8, 7, 49, 50, 21, 20, 22, 23, 24, 25, 26, 22
+    target_columns = [47, 26, 3, 4, 5, 7, 6, 48, 53, 49, 20, 19, 21, 22, 23, 24, 25]
     
     # Nagłówki zgodnie z "order set"
     headers = [
@@ -48,7 +48,7 @@ def process_ptv_data(df):
         "time window type", "color", "as is sequence", "tags",
         "forbidden tags", "labels", "penalty cost", "group id",
         "description", "sequence number", "sequence group id", "avis",
-        "avis pickup date", "final destination", "same vehicle group id"
+        "avis pickup date", "final destination", "same vehicle group id", "order reference"
     ]
     
     # Utwórz pustą DataFrame z 50 kolumnami
@@ -156,7 +156,7 @@ def add_formulas_to_excel(df, output_path):
             bottom=Side(style='thin')
         )
         
-        for row in worksheet.iter_rows(min_row=1, max_row=len(df)+1, min_col=1, max_col=50):
+        for row in worksheet.iter_rows(min_row=1, max_row=len(df)+1, min_col=1, max_col=52):
             for cell in row:
                 cell.border = thin_border
         
